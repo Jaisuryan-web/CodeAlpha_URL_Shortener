@@ -21,6 +21,15 @@ def init_db():
 
 init_db()
 
+# Home route
+@app.route("/")
+def home():
+    return """
+    <h1>URL Shortener</h1>
+    <p>Use the /shorten endpoint with POST request to shorten URLs</p>
+    <p>Example: POST to /shorten with JSON: {"long_url": "https://example.com"}</p>
+    """
+
 # Generate short code
 def generate_short_code(length=6):
     characters = string.ascii_letters + string.digits
