@@ -1,4 +1,4 @@
-from flask import Flask, request, redirect, jsonify
+from flask import Flask, request, redirect, jsonify, render_template
 import sqlite3
 import string
 import random
@@ -24,11 +24,7 @@ init_db()
 # Home route
 @app.route("/")
 def home():
-    return """
-    <h1>URL Shortener</h1>
-    <p>Use the /shorten endpoint with POST request to shorten URLs</p>
-    <p>Example: POST to /shorten with JSON: {"long_url": "https://example.com"}</p>
-    """
+    return render_template("index.html")
 
 # Generate short code
 def generate_short_code(length=6):
